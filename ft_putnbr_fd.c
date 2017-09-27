@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 23:10:00 by asarandi          #+#    #+#             */
-/*   Updated: 2017/09/25 15:59:24 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/09/27 12:32:08 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_itoa_len2(long n)
 {
-	int i;
+	int		i;
 
 	if (n == 0)
 		return (1);
@@ -55,7 +55,11 @@ static char	*ft_itoa2(long n, char *m)
 void		ft_putnbr_fd(int n, int fd)
 {
 	char	m[200];
+	int		i;
 
+	i = 0;
+	while (i < 200)
+		m[i++] = 0;
 	ft_itoa2(n, m);
 	ft_putstr_fd(m, fd);
 }
