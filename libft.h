@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 17:51:15 by asarandi          #+#    #+#             */
-/*   Updated: 2017/09/28 11:38:39 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:27:06 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,7 @@ char				*ft_capitalize(char *str);
 int					ft_isspace(int c);
 char				*ft_uriencode(char *s);
 char				*ft_base64encode(unsigned char *o, size_t size);
+char				*ft_strtolower(char *s);
+char				*ft_strtoupper(char *s);
 
 #endif
