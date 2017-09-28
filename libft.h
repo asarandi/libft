@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 17:51:15 by asarandi          #+#    #+#             */
-/*   Updated: 2017/09/25 16:59:54 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/09/28 11:38:39 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
-int					ft_isspace(int c);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strdup(const char *s1);
@@ -83,5 +82,10 @@ char				*ft_strstr(const char *big, const char *little);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_atoi(const char *s);
+char				*ft_strreplace(char *search, char *replace, char *subject);
+char				*ft_capitalize(char *str);
+int					ft_isspace(int c);
+char				*ft_uriencode(char *s);
+char				*ft_base64encode(unsigned char *o, size_t size);
 
 #endif
