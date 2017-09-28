@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 13:54:17 by asarandi          #+#    #+#             */
-/*   Updated: 2017/09/27 14:10:31 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/09/28 13:03:28 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ char	*ft_capitalize(char *str)
 		}
 		i++;
 	}
-	return(str);
+	return (str);
 }

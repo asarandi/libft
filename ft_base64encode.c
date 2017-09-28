@@ -6,18 +6,25 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 20:14:04 by asarandi          #+#    #+#             */
-/*   Updated: 2017/09/28 11:37:20 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/09/28 14:28:53 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char	*ft_b64algo(size_t i, size_t k, size_t size, char *mem, unsigned char *s)
-{
-	unsigned char	tab[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-	unsigned char c;
-	unsigned char d;
+typedef unsigned char	t_uc;
+typedef char const		t_cc;
+typedef size_t			t_st;
 
+static char		*ft_b64algo(t_st k, t_st size, char *mem, t_uc *s)
+{
+	t_uc		c;
+	t_uc		d;
+	static char	*tab;
+	t_st		i;
+
+	tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	i = 0;
 	while (i < size)
 	{
 		c = s[i] >> 2;
@@ -38,15 +45,18 @@ static	char	*ft_b64algo(size_t i, size_t k, size_t size, char *mem, unsigned cha
 	return (mem);
 }
 
-char	*ft_base64encode(unsigned char *o, size_t size)
+char			*ft_base64encode(t_uc *o, t_st size)
 {
-	char			*mem;
-	unsigned char	*s;
-	size_t			i;
+	char		*mem;
+	t_uc		*s;
+	t_st		i;
 
 	if ((s = ft_memalloc((size + 6) * sizeof(char))) == NULL)
 		return (NULL);
 	ft_memcpy(s, o, size);
+	i = size;
+	while (i < size + 6)
+		s[i++] = 0;
 	i = size;
 	while (i % 3)
 		i++;
@@ -54,5 +64,5 @@ char	*ft_base64encode(unsigned char *o, size_t size)
 	i *= 4;
 	if ((mem = ft_memalloc((i + 1) * sizeof(char))) == NULL)
 		return (NULL);
-	return (ft_b64algo(0, 0, size, mem, s));
+	return (ft_b64algo(0, size, mem, s));
 }
