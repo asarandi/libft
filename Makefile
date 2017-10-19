@@ -6,7 +6,7 @@
 #    By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/20 17:41:00 by asarandi          #+#    #+#              #
-#    Updated: 2017/09/28 15:24:15 by asarandi         ###   ########.fr        #
+#    Updated: 2017/10/18 21:37:58 by asarandi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,9 +79,7 @@ FILES		= ft_atoi.c \
 	ft_uriencode.c
 
 OBJ			= $(FILES:%.c=%.o)
-DEPS		= libft.h
 SONAME		= libft.so
-JUNK		= libft.h.gch
 
 all: $(NAME)
 
@@ -89,18 +87,18 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 norm:
-	norminette -R CheckForbiddenSourceHeader $(FILES) $(DEPS)
+	norminette -R CheckForbiddenSourceHeader $(FILES) libft.h
 so:
-	gcc -c -fPIC $(FILES) $(DEPS)
+	gcc -c -fPIC $(FILES)
 	gcc -shared -fPIC -o $(SONAME) $(OBJ)
 
 $(OBJ): $(FILES)
-	gcc $(CFLAGS) $(FILES) $(DEPS)
+	gcc $(CFLAGS) $(FILES)
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME) $(SONAME) $(JUNK)
+	rm -f $(NAME) $(SONAME)
 
 re: fclean all
